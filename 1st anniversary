@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Anniversary</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Georgia', serif;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 10px;
+            max-width: 600px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        
+        h1 {
+            color: #d63384;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        .date {
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+        
+        .letter {
+            color: #333;
+            line-height: 1.8;
+            font-size: 1.1em;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+        
+        .signature {
+            margin-top: 40px;
+            font-size: 1.3em;
+            color: #d63384;
+        }
+        
+        .hearts {
+            font-size: 2em;
+            margin: 20px 0;
+            letter-spacing: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Anniversary! 💕</h1>
+        <p class="date">April 30, 2026</p>
+        
+        <div class="hearts">❤️ 💕 ❤️</div>
+        
+        <div class="letter">
+            <p>Dear [Love],</p>
+            <br>
+            <p>
+                Happyyyy 1st Anniversary loveee i love youuu! I hope that this simple efforts can make you happy!❤️
+I may don't have i real physical efforts because kulang sa money, i hope that this is enough to make you smile this day. I just wanna let you know na, ever since day one na pag hambal ko saimo "i love you" i really mean it. Ndi bala hapos mag hambal sina😭 kailangan gid ya panindigan mo. But i really mean it, i love youu.
+            </p>
+            <br>
+            <p>
+                This time i wanna take time to thank you for first of all saimo love, saimo pag intindi, saimo mga efforts love salamat gid. I just wanna let you know na na appreciate ko gid tanan, you make me feel love beside sa paghigugma ni Lord na the best gid ang imo love ang pang 2nd. Thank you sa pag pili saakon, thank you sa pag hatag mo kwarta saakon nong nagkadto ko sainyu, thank you sa kissess, thank you sa pag kadto mo sa graduation ko, thank you for staying, thank you for waiting, thank you for saying "Oo" 12months ago salamat gidd, Appreciated ko gid. Gin sulod ta ni matapos ta ni love ah😙 iloveyou, stay strong saaton remembr always dapat "ALWAYS PRAY" HAPPY FIRST ANNIVERSARY LOVEE!❤️
+            </p>
+            <br>
+            <p>Forever yours,</p>
+        </div>
+        
+        <div class="signature">
+            [Eli] ❤️
+        </div>
+        
+        <div class="hearts">❤️ 💕 ❤️</div>
+    </div>
+</body>
+</html>
