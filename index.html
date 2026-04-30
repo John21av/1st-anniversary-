@@ -3,47 +3,376 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Love Letter</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Our 1st Anniversary Love Letter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lora:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #fef3e2 0%, #fce4ec 25%, #f3e5f5 50%, #fce4ec 75%, #fef3e2 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .envelope {
+            perspective: 1000px;
+            transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transform-style: preserve-3d;
+        }
+
+        .envelope.opened {
+            transform: rotateX(180deg) scale(0.9);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .envelope-back {
+            background: linear-gradient(135deg, #ffe4e1 0%, #ffd7e8 100%);
+            box-shadow: 0 20px 60px rgba(198, 30, 58, 0.15);
+        }
+
+        .envelope-flap {
+            background: linear-gradient(135deg, #c41e3a 0%, #d63384 100%);
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+            transition: all 0.6s ease;
+        }
+
+        .envelope.opened .envelope-flap {
+            transform: rotateX(180deg);
+        }
+
+        .letter-content {
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+            transition: all 0.8s ease 0.4s;
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        .letter-content.revealed {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            max-height: 100vh;
+        }
+
+        .floating-heart {
+            position: fixed;
+            font-size: 2rem;
+            pointer-events: none;
+            animation: float-up 3s ease-out forwards;
+            z-index: 50;
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) scale(0.5) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .music-btn {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .music-btn:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .music-btn.playing {
+            animation: pulse-music 1s infinite;
+        }
+
+        @keyframes pulse-music {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        .handwritten {
+            font-family: 'Lora', serif;
+            font-style: italic;
+            color: #c41e3a;
+            font-weight: 600;
+        }
+
+        .heading-serif {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #c41e3a, #d63384);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #c41e3a;
+            margin-bottom: 1.5rem;
+        }
+
+        .letter-paragraph {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .thank-you-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .thank-you-item {
+            background: linear-gradient(135deg, rgba(198, 30, 58, 0.05), rgba(214, 51, 132, 0.05));
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #c41e3a;
+            font-style: italic;
+            color: #555;
+        }
+
+        .emphasis {
+            background: linear-gradient(120deg, #ffd7e8, #fff1f3);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #c41e3a;
+        }
+
+        .signature {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            color: #c41e3a;
+        }
+
+        .heart-icon {
+            display: inline-block;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1.15); }
+            75% { transform: scale(1.1); }
+        }
+
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #c41e3a, transparent);
+            margin: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .heading-serif {
+                font-size: 2rem;
+            }
+
+            .section-heading {
+                font-size: 1.5rem;
+            }
+
+            .letter-paragraph {
+                font-size: 1rem;
+            }
+
+            .music-btn {
+                top: 1rem;
+                right: 1rem;
+            }
+
+            .thank-you-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <h1>Our Love Story</h1>
-        <nav>
-            <ul>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#timeline">Timeline</a></li>
-                <li><a href="#about">About Us</a></li>
-            </ul>
-        </nav>
-    </header>
+<body class="gradient-bg">
+    <!-- Music Toggle Button -->
+    <button class="music-btn" id="musicBtn" title="Play Anniversary Song">
+        <svg class="w-12 h-12 text-rose-600 drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 1C6.48 1 2 5.48 2 11s4.48 10 10 10 10-4.48 10-10S17.52 1 12 1zm-2 15l-5-5h3V7h4v4h3l-5 5z"/>
+        </svg>
+    </button>
 
-    <section id="about">
-        <h2>About Us</h2>
-        <p>Welcome to our love story! Here we share our journey together, highlighting our special moments and milestones.</p>
-    </section>
+    <!-- Main Container -->
+    <div class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-2xl">
+            <!-- Envelope Section -->
+            <div class="envelope envelope-back rounded-xl overflow-hidden mb-8" id="envelope">
+                <div class="envelope-flap h-32 flex items-center justify-center cursor-pointer hover:shadow-2xl transition-shadow" id="envelopeFlap">
+                    <div class="text-center">
+                        <div class="text-5xl mb-2">💌</div>
+                        <p class="text-white text-sm font-semibold">Click to open your love letter</p>
+                    </div>
+                </div>
+                <div class="bg-white p-8 md:p-12 min-h-96">
+                    <div class="text-center mb-8">
+                        <div class="text-6xl mb-4 heart-icon">❤️</div>
+                        <h1 class="heading-serif mb-2">Happy 1st Anniversary</h1>
+                        <p class="text-rose-500 text-lg font-semibold">My Love</p>
+                    </div>
+                    <div class="divider"></div>
+                </div>
+            </div>
 
-    <section id="gallery">
-        <h2>Photo Gallery</h2>
-        <div class="gallery">
-            <img src="photo1.jpg" alt="Moment 1">
-            <img src="photo2.jpg" alt="Moment 2">
-            <img src="photo3.jpg" alt="Moment 3">
+            <!-- Letter Content -->
+            <div class="letter-content" id="letterContent">
+                <div class="bg-white rounded-xl shadow-2xl p-8 md:p-12 space-y-6">
+                    <!-- Opening -->
+                    <div class="text-center mb-8">
+                        <p class="text-4xl mb-4">💕</p>
+                        <h2 class="section-heading text-center">Happyyyy 1st Anniversary loveee i love youuu!</h2>
+                        <p class="text-lg text-rose-600 font-semibold">I hope that this simple effort can make you happy! ❤️</p>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <!-- First Section -->
+                    <div>
+                        <p class="letter-paragraph">
+                            I may not have real physical efforts because kulang sa money, but I hope that this is enough to make you smile this day. I just wanna let you know na, ever since day one when I hambal ko saimo <span class="emphasis">"i love you"</span> i really mean it. Hindi bala hapos mag hambal sina 😭 kailangan gid ya panindigan mo. But i really mean it, <span class="emphasis">i love youu.</span>
+                        </p>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <!-- Gratitude Section -->
+                    <div>
+                        <h3 class="section-heading">My Heartfelt Thanks</h3>
+                        <p class="letter-paragraph">
+                            This time i wanna take time to thank you for first of all saimo love, saimo pag intindi, saimo mga efforts love <span class="handwritten">salamat gid</span>. I just wanna let you know na na appreciate ko gid tanan, you make me feel love beside sa paghigugma ni Lord na <span class="emphasis">the best gid ang imo love ang pang 2nd</span>.
+                        </p>
+                    </div>
+
+                    <!-- Thank You Items -->
+                    <div class="thank-you-list">
+                        <div class="thank-you-item">Thank you sa pag pili saakon</div>
+                        <div class="thank-you-item">Thank you sa pag hatag mo kwarta saakon nong nagkadto ko sainyu</div>
+                        <div class="thank-you-item">Thank you sa kissess 💋</div>
+                        <div class="thank-you-item">Thank you sa pag kadto mo sa graduation ko</div>
+                        <div class="thank-you-item">Thank you for staying</div>
+                        <div class="thank-you-item">Thank you for waiting</div>
+                        <div class="thank-you-item">Thank you for saying "Oo" 12 months ago</div>
+                        <div class="thank-you-item"><span class="handwritten">Salamat gidd</span>, Appreciated ko gid</div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <!-- Closing -->
+                    <div class="text-center space-y-4">
+                        <p class="letter-paragraph">
+                            Gin sulod ta ni matapos ta ni love ah 😙 <span class="emphasis">iloveyou</span>, stay strong saaton. Remember always dapat <span class="emphasis" style="background: linear-gradient(120deg, #ffd7e8, #fff1f3); padding: 0.5rem 1rem; border-radius: 6px;">"ALWAYS PRAY"</span>
+                        </p>
+                        <p class="signature">
+                            <span class="heart-icon">❤️</span> HAPPY FIRST ANNIVERSARY LOVEE! <span class="heart-icon">❤️</span>
+                        </p>
+                        <p class="text-2xl">💕 iloveyou 💕</p>
+                    </div>
+
+                    <!-- Scroll Indicator -->
+                    <div class="text-center mt-8 pt-8 border-t border-gray-200">
+                        <p class="text-gray-400 text-sm mb-2">Click anywhere to create floating hearts 💕</p>
+                        <div class="scroll-indicator text-2xl">✨</div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
 
-    <section id="timeline">
-        <h2>Timeline</h2>
-        <ul class="timeline">
-            <li>2022-01-01: <strong>First Date</strong> - A memorable dinner at our favorite restaurant.</li>
-            <li>2022-06-15: <strong>Anniversary</strong> - Celebrated a year of love and togetherness.</li>
-            <li>2023-03-30: <strong>Engagement</strong> - A beautiful proposal by the beach.</li>
-            <li>2024-04-01: <strong>Wedding</strong> - A perfect celebration with friends and family.</li>
-        </ul>
-    </section>
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
 
-    <footer>
-        <p>&copy; 2026 John21av. All Rights Reserved.</p>
-    </footer>
+        const envelope = document.getElementById('envelope');
+        const envelopeFlap = document.getElementById('envelopeFlap');
+        const letterContent = document.getElementById('letterContent');
+        const musicBtn = document.getElementById('musicBtn');
+
+        let isOpened = false;
+        let isPlaying = false;
+
+        // Open Envelope
+        envelopeFlap.addEventListener('click', () => {
+            if (!isOpened) {
+                isOpened = true;
+                envelope.classList.add('opened');
+                setTimeout(() => {
+                    letterContent.classList.add('revealed');
+                }, 400);
+            }
+        });
+
+        // Floating Hearts on Click
+        document.addEventListener('click', (e) => {
+            if (e.target === musicBtn || e.target.closest('#musicBtn')) return;
+            
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            heart.innerHTML = ['❤️', '💕', '💖', '💗', '💝'][Math.floor(Math.random() * 5)];
+            heart.style.left = e.clientX + 'px';
+            heart.style.top = e.clientY + 'px';
+            document.body.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 3000);
+        });
+
+        // Music Toggle
+        musicBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            isPlaying = !isPlaying;
+            musicBtn.classList.toggle('playing');
+            
+            // You can replace this with actual music player code
+            console.log(isPlaying ? 'Music playing...' : 'Music stopped');
+        });
+
+        // Auto-open on load (optional - removes for better UX)
+        window.addEventListener('load', () => {
+            // Uncomment to auto-open:
+            // setTimeout(() => {
+            //     envelopeFlap.click();
+            // }, 500);
+        });
+    </script>
 </body>
 </html>
