@@ -3,69 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1st Anniversary</title>
-    <style>
-        body {
-            background: linear-gradient(to right, #ff88a3, #cb99ff);
-            font-family: Arial, sans-serif;
-            color: white;
-            text-align: center;
-            overflow: hidden;
-            animation: fadeIn 2s ease-in;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .heart {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            background: red;
-            transform: rotate(45deg);
-            animation: animateHeart 5s linear infinite;
-        }
-        .heart:before, .heart:after {
-            content: '';
-            position: absolute;
-            background: red;
-            border-radius: 50%;
-        }
-        .heart:before {
-            width: 50px;
-            height: 50px;
-            top: -25px;
-            left: 0;
-        }
-        .heart:after {
-            width: 50px;
-            height: 50px;
-            top: 0;
-            left: 25px;
-        }
-        @keyframes animateHeart {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-30px); }
-            100% { transform: translateY(0); }
-        }
-        .heartbeat {
-            animation: heartbeat 1s infinite;
-        }
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-        .message {
-            margin-top: 60px;
-            font-size: 24px;
-        }
-    </style>
+    <title>Professional Love Letter</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="message">
-        Happyyyy 1st Anniversary loveee i love youuu! I hope that this simple efforts can make you happy!❤️ I may don't have i real physical efforts because kulang sa money, i hope that this is enough to make you smile this day. I just wanna let you know na, ever since day one na pag hambal ko saimo "i love you" i really mean it. Ndi bala hapos mag hambal sina😭 kailangan gid ya panindigan mo. But i really mean it, i love youu. This time i wanna take time to thank you for first of all saimo love, saimo pag intindi, saimo mga efforts love salamat gid. I just wanna let you know na na appreciate ko gid tanan, you make me feel love beside sa paghigugma ni Lord na the best gid ang imo love ang pang 2nd. Thank you sa pag pili saakon, thank you sa pag hatag mo kwarta saakon nong nagkadto ko sainyu, thank you sa kissess, thank you sa pag kadto mo sa graduation ko, thank you for staying, thank you for waiting, thank you for saying "Oo" 12months ago salamat gidd, Appreciated ko gid. Gin sulod ta ni matapos ta ni love ah😙 iloveyou, stay strong saaton remembr always dapat "ALWAYS PRAY" HAPPY FIRST ANNIVERSARY LOVEE!❤️
-    </div>
+    <header>
+        <h1>Our Love Story</h1>
+        <nav>
+            <ul>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#timeline">Timeline</a></li>
+                <li><a href="#about">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Welcome to our love story! Here we share our journey together, highlighting our special moments and milestones.</p>
+    </section>
+
+    <section id="gallery">
+        <h2>Photo Gallery</h2>
+        <div class="gallery">
+            <img src="photo1.jpg" alt="Moment 1">
+            <img src="photo2.jpg" alt="Moment 2">
+            <img src="photo3.jpg" alt="Moment 3">
+        </div>
+    </section>
+
+    <section id="timeline">
+        <h2>Timeline</h2>
+        <ul class="timeline">
+            <li>2022-01-01: <strong>First Date</strong> - A memorable dinner at our favorite restaurant.</li>
+            <li>2022-06-15: <strong>Anniversary</strong> - Celebrated a year of love and togetherness.</li>
+            <li>2023-03-30: <strong>Engagement</strong> - A beautiful proposal by the beach.</li>
+            <li>2024-04-01: <strong>Wedding</strong> - A perfect celebration with friends and family.</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 John21av. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
