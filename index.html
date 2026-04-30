@@ -1,53 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1st Anniversary</title>
     <style>
         body {
-            position: relative;
-            overflow: hidden;
+            background: linear-gradient(to right, #ff88a3, #cb99ff);
             font-family: Arial, sans-serif;
+            color: white;
             text-align: center;
-            background-color: #fff;
-        }
-        .hearts {
-            position: absolute;
-            font-size: 24px;
-            animation: pulse 1.5s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.5); }
-            100% { transform: scale(1); }
-        }
-        .fade-in {
-            opacity: 0;
-            animation: fadeIn 2s forwards;
+            overflow: hidden;
+            animation: fadeIn 2s ease-in;
         }
         @keyframes fadeIn {
-            from {opacity: 0;}
-            to {opacity: 1;}
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .heart {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: red;
+            transform: rotate(45deg);
+            animation: animateHeart 5s linear infinite;
+        }
+        .heart:before, .heart:after {
+            content: '';
+            position: absolute;
+            background: red;
+            border-radius: 50%;
+        }
+        .heart:before {
+            width: 50px;
+            height: 50px;
+            top: -25px;
+            left: 0;
+        }
+        .heart:after {
+            width: 50px;
+            height: 50px;
+            top: 0;
+            left: 25px;
+        }
+        @keyframes animateHeart {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
+            100% { transform: translateY(0); }
+        }
+        .heartbeat {
+            animation: heartbeat 1s infinite;
+        }
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        .message {
+            margin-top: 60px;
+            font-size: 24px;
         }
     </style>
 </head>
 <body>
-    <h1 class="fade-in">Happy 1st Anniversary!</h1>
-    <div class="hearts">💖</div>
-    <script>
-        function createHearts() {
-            const heart = document.createElement('div');
-            heart.className = 'hearts';
-            heart.innerText = '💖';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
-            document.body.appendChild(heart);
-            setTimeout(() => {
-                heart.remove();
-            }, 5000);
-        }
-        setInterval(createHearts, 500);
-    </script>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="message">
+        Happyyyy 1st Anniversary loveee i love youuu! I hope that this simple efforts can make you happy!❤️ I may don't have i real physical efforts because kulang sa money, i hope that this is enough to make you smile this day. I just wanna let you know na, ever since day one na pag hambal ko saimo "i love you" i really mean it. Ndi bala hapos mag hambal sina😭 kailangan gid ya panindigan mo. But i really mean it, i love youu. This time i wanna take time to thank you for first of all saimo love, saimo pag intindi, saimo mga efforts love salamat gid. I just wanna let you know na na appreciate ko gid tanan, you make me feel love beside sa paghigugma ni Lord na the best gid ang imo love ang pang 2nd. Thank you sa pag pili saakon, thank you sa pag hatag mo kwarta saakon nong nagkadto ko sainyu, thank you sa kissess, thank you sa pag kadto mo sa graduation ko, thank you for staying, thank you for waiting, thank you for saying "Oo" 12months ago salamat gidd, Appreciated ko gid. Gin sulod ta ni matapos ta ni love ah😙 iloveyou, stay strong saaton remembr always dapat "ALWAYS PRAY" HAPPY FIRST ANNIVERSARY LOVEE!❤️
+    </div>
 </body>
 </html>
