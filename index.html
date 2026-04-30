@@ -1,11 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Anniversary Celebration</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1st Anniversary</title>
+    <style>
+        body {
+            position: relative;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #fff;
+        }
+        .hearts {
+            position: absolute;
+            font-size: 24px;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.5); }
+            100% { transform: scale(1); }
+        }
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+    </style>
 </head>
 <body>
-    <h1>Happy Anniversary!</h1>
-    <p>Thank you for being a part of our journey.</p>
-    <p>Current Date and Time: 2026-04-30 11:27:13 UTC</p>
+    <h1 class="fade-in">Happy 1st Anniversary!</h1>
+    <div class="hearts">💖</div>
+    <script>
+        function createHearts() {
+            const heart = document.createElement('div');
+            heart.className = 'hearts';
+            heart.innerText = '💖';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+        setInterval(createHearts, 500);
+    </script>
 </body>
 </html>
